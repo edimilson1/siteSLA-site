@@ -32,7 +32,6 @@ h1 span{display:inline-block;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both;a
 .director .frame::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
 .director .frame::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
 .director .tag{position:absolute;left:14px;top:-9px;padding:0 8px;background:var(--ink);font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);z-index:1}
-#ascii{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
 .stage{position:relative;width:100%;aspect-ratio:1/1.14;clip-path:inset(-40% -30% 0 -30%)}
 .disc{position:absolute;left:0;bottom:-9%;width:100%;aspect-ratio:1;border-radius:50%;
   background:
@@ -44,11 +43,11 @@ h1 span{display:inline-block;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both;a
 .rb{transform-box:fill-box;transform-origin:50% 50%;animation:sway 9s ease-in-out infinite}
 .rb.b{animation-delay:-3s;animation-duration:11s}.rb.c{animation-delay:-6s;animation-duration:13s}
 @keyframes sway{50%{transform:translate(1.5%,-3%) rotate(1.2deg)}}
-.cutbox{position:absolute;left:1%;bottom:0;width:98%;aspect-ratio:860/983}
-.cut{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 30px rgba(6,18,43,.45));transition:opacity 1.3s ease}
-.js .cut:not(.on){opacity:0}
+.logobox{position:absolute;left:10%;bottom:3%;width:80%;aspect-ratio:1}
+.logo-hero{display:block;width:100%;height:auto;border-radius:50%;filter:drop-shadow(0 22px 34px rgba(6,18,43,.55)) drop-shadow(0 0 40px rgba(219,165,46,.25));animation:logofloat 8s ease-in-out infinite}
+@keyframes logofloat{50%{transform:translateY(-1.8%)}}
 @media(max-width:900px){.stage{clip-path:inset(-40% 0 0 0)}.ribbons{inset:-6% -4% 6% -4%;width:108%}}
-@media(prefers-reduced-motion:reduce){.rb{animation:none}}
+@media(prefers-reduced-motion:reduce){.rb,.logo-hero{animation:none}}
 .director figcaption{display:flex;flex-direction:column;gap:2px;margin-top:14px;padding-left:4px}
 .director figcaption b{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.5rem;line-height:1.1}
 .director figcaption span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}

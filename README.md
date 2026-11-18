@@ -1,6 +1,8 @@
-# siteSLA — site da Silvério Languages Academy
+# siteSLA — Silvério Languages Academy
 
-Site estático: abra o `index.html`. Sem build, sem instalar nada.
+> Conectando pessoas ao mundo através dos idiomas.
+
+Site institucional estático (HTML + CSS + JavaScript puro, WebGL para os fundos). Sem build e sem dependências: o `index.html` está na raiz e o GitHub Pages publica direto.
 
 ## Publicar no GitHub Pages (para o cliente ver)
 1. Crie um repositório no GitHub e envie **o conteúdo desta pasta** (o `index.html` precisa ficar na raiz do repositório).
@@ -23,8 +25,8 @@ js/
   01-core.js            ← dados do site (WhatsApp, e-mail, EAD), toast
   02-api.js             ← comunicação com o backend (desligada se apiBase vazio)
   03-chapters.js  04-reveal.js  05-content.js  06-form.js
-  07-ascii-portrait.js  08-paper-edges.js  09-theme.js  10-parallax.js
-  11-shaders.js  12-webgl-stage.js
+  07-paper-edges.js  08-theme.js  09-parallax.js
+  10-shaders.js  11-webgl-stage.js
 img/                    ← fundos, fundador, logotipo, ícones
 favicon.ico, apple-touch-icon.png, site.webmanifest, robots.txt, 404.html, .nojekyll
 ```
@@ -37,11 +39,12 @@ favicon.ico, apple-touch-icon.png, site.webmanifest, robots.txt, 404.html, .noje
 | Cores e fontes globais | `css/01-base.css` (variáveis no topo) |
 | Menu · primeira tela | `css/02-nav.css` · `css/03-hero.css` |
 | Cores de cada idioma | `css/05-languages.css` |
-| Folha central, papel rasgado | `css/07-sheet.css` · `js/08-paper-edges.js` |
-| Modo escuro | `css/08-dark-mode.css` · `js/09-theme.js` |
+| Folha central, papel rasgado | `css/07-sheet.css` · `js/07-paper-edges.js` |
+| Modo escuro | `css/08-dark-mode.css` · `js/08-theme.js` |
+| Logotipo da primeira tela | `img/logo-hero.webp` · tamanho em `css/03-hero.css` (`.logobox`) |
 | Fundos das línguas | `img/1.jpg … 6.jpg` (0 globo · 1 e 6 flor · 2 Paris · 3 pagode · 4 Londres · 5 dançarina) |
-| Brilho/transição dos fundos | `js/11-shaders.js` · `js/12-webgl-stage.js` |
-| Objetos que flutuam | `js/10-parallax.js` · `css/09-parallax-fx.css` |
+| Brilho/transição dos fundos | `js/10-shaders.js` · `js/11-webgl-stage.js` |
+| Objetos que flutuam | `js/09-parallax.js` · `css/09-parallax-fx.css` |
 
 ## Ligar o backend (depois)
 Publique `../siteSLA-backend` na Cloudflare, copie o endereço dele e cole em `js/00-config.js`:

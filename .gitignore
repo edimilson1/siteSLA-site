@@ -1,0 +1,12 @@
+# sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+# nunca versionar segredos ou pacotes
+.env
+.dev.vars
+*.zip
+node_modules/
