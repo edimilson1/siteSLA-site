@@ -1,0 +1,53 @@
+/* 09-parallax-fx.css — Objetos em paralaxe e tema claro do espanhol */
+.bk{width:var(--s,160px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--c,#fff) 0,color-mix(in srgb,var(--c,#fff) 40%,transparent) 38%,transparent 68%);filter:blur(var(--b,3px));opacity:var(--o,.4);mix-blend-mode:screen}
+.ghost{font-family:var(--hd,var(--display));font-size:clamp(6rem,21vw,19rem);line-height:.8;white-space:nowrap;color:transparent;-webkit-text-stroke:2px var(--gold);opacity:.4;filter:drop-shadow(0 0 22px var(--accent));text-transform:none;z-index:0}
+.chapter .orb{opacity:1;width:calc(var(--s,100px)*1.25);box-shadow:0 0 70px 6px color-mix(in srgb,var(--accent) 55%,transparent),0 34px 60px -20px rgba(0,0,0,.6)}
+.chapter .bubble{font-size:1.6rem;box-shadow:0 0 50px color-mix(in srgb,var(--accent) 45%,transparent),0 24px 50px -18px rgba(0,0,0,.7)}
+.chapter .arch{box-shadow:0 0 90px color-mix(in srgb,var(--accent) 35%,transparent)}
+
+/* objetos em paralaxe dos capítulos de idioma (realçados) */
+.leaf{filter:drop-shadow(0 12px 22px rgba(0,0,0,.45)) drop-shadow(0 0 16px rgba(255,214,110,.5));animation:sway 6s ease-in-out infinite alternate;animation-delay:var(--dl,0s);height:auto}
+.leaf.oy{animation-duration:8s}
+.lantern{height:auto;transform-origin:50% 0;animation:swing 5.5s ease-in-out infinite alternate}
+.glint{height:auto;filter:drop-shadow(0 0 10px #ffd27a) drop-shadow(0 0 22px rgba(255,190,90,.9));animation:tw 3.2s ease-in-out infinite;animation-delay:var(--dl,0s)}
+.glint.gold{filter:drop-shadow(0 0 10px #ffc35a) drop-shadow(0 0 24px rgba(255,150,40,.9))}
+.clockf{height:auto;opacity:.95}
+.clockf .hm,.clockf .hh{transform-origin:60px 60px;animation:spin 24s linear infinite}
+.clockf .hh{animation-duration:288s}
+.splat{height:auto;filter:drop-shadow(0 18px 24px rgba(80,0,10,.35))}
+.stroke{height:auto;filter:drop-shadow(0 6px 12px rgba(80,0,10,.3))}
+.fl.front{z-index:2}
+@keyframes sway{from{transform:rotate(-12deg) translateX(-8px)}to{transform:rotate(12deg) translateX(10px)}}
+@keyframes swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes tw{0%,100%{transform:scale(.5) rotate(0);opacity:.45}50%{transform:scale(1.15) rotate(45deg);opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.leaf,.lantern,.glint,.clockf .hm,.clockf .hh{animation:none}}
+@media(max-width:760px){.fl.front{display:none}.leaf{width:calc(var(--w,60px))}.clockf{width:110px!important}}
+/* espanhol: papel claro com tinta */
+.t-es{color:#1b0b0e;--bone:#1b0b0e;--mist:#4d2b30;--gold:#b3121f;--accent:#c8101e;--glass:rgba(255,255,255,.62);--line:rgba(27,11,14,.22)}
+.t-es .body,.t-es .gloss,.t-es .quote{text-shadow:0 0 22px rgba(255,255,255,.8)}
+.t-es .chips li{background:rgba(255,255,255,.7);color:var(--bone)}
+.t-es .ghost{opacity:.26}
+.chapter.t-es .ctext{background:linear-gradient(100deg,rgba(255,255,255,.84),rgba(255,255,255,.55));border-color:rgba(27,11,14,.14)}
+.t-es .numeral{-webkit-text-stroke:1.5px var(--accent)}
+.dots.lt button{color:#4d2b30}.dots.lt button.on{color:#c8101e}
+@media(max-width:760px){.ghost{font-size:30vw}.bk{width:calc(var(--s,160px)*.6)}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  h1 span,.badge .ring,.track{animation:none}
+  [data-r].pre{opacity:1;transform:none}
+  .draw.pre path,.draw.pre circle,.draw.pre ellipse,.draw.pre rect{stroke-dashoffset:0}
+}
+
+/* seções sobre fundo claro (papel): história, palavras, contato */
+.on-paper{color:#1b0b0e;--bone:#1b0b0e;--mist:#4d2b30;--gold:#b3121f;--accent:#c8101e;--glass:rgba(255,255,255,.66);--line:rgba(27,11,14,.22)}
+.on-paper .body,.on-paper .gloss,.on-paper .quote{text-shadow:0 0 22px rgba(255,255,255,.8)}
+.on-paper .chips li{background:rgba(255,255,255,.7);color:var(--bone)}
+.chapter.on-paper .ctext{background:linear-gradient(100deg,rgba(255,255,255,.84),rgba(255,255,255,.55));border-color:rgba(27,11,14,.14)}
+.on-paper .numeral{-webkit-text-stroke:1.5px var(--accent)}
+.on-paper .btn:hover{color:#fff}
+.on-paper .btn.solid{background:#c8101e;border-color:#c8101e;color:#fff}
+.on-paper .btn.solid:hover{background:#1b0b0e;border-color:#1b0b0e}
+.parole.on-paper{background:rgba(255,255,255,.55)}
+/* espanhol: texto mais estreito para a bailarina ficar no centro */
+@media(min-width:900px){.chapter.t-es .ctext{grid-column:1 / span 5}}

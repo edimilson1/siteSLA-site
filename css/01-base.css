@@ -1,0 +1,34 @@
+/* 01-base.css — Tokens, reset e base */
+/* Layout concept: um único palco WebGL fixo atrás de tudo, onde ilustrações originais se dissolvem de um capítulo para o outro
+   (origem, inglês, francês, mandarim, espanhol). Texto em colunas assimétricas, ao lado de molduras em arco com desenhos de linha. */
+:root{
+  --ink:#06122b;
+  --lapis:#1f56b8;
+  --bone:#ece3d0;
+  --gold:#dba52e;
+  --vermilion:#e0553a;
+  --mist:rgba(236,227,208,.84);
+  --line:rgba(236,227,208,.2);
+  --glass:rgba(6,18,43,.55);
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--bone);
+  font-family:var(--display);font-weight:400;font-size:1.0625rem;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block}
+.no-gl body{background:radial-gradient(120% 80% at 70% 10%,#1d2f75 0,#070a14 60%)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1240px;margin-inline:auto}
+
+/* progress + nav */

@@ -1,0 +1,68 @@
+/* 05-languages.css — Temas por idioma e legibilidade */
+.chapter{overflow:clip}
+.chapter[data-word]::after{display:none;
+  content:attr(data-word);position:absolute;bottom:1%;right:-1%;z-index:-1;pointer-events:none;
+  font-family:var(--hd,var(--display));font-size:clamp(7rem,26vw,24rem);line-height:.8;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1px rgba(236,227,208,.1);
+}
+.chapter.flip[data-word]::after{right:auto;left:-1%}
+.chapter.t-en::before,.chapter.t-fr::before,.chapter.t-zh::before,.chapter.t-es::before{content:"";position:absolute;left:0;right:0;top:0;opacity:.92}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0;padding:0;list-style:none;max-width:60ch}
+.chips li{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--gold);color:var(--gold);border-radius:999px;background:var(--glass)}
+
+/* inglês · Americana: neon, táxi amarelo, listras */
+.t-en{--gold:#ffd27a;--accent:#ff7a59;--hd:"Bebas Neue",Impact,"Arial Narrow",sans-serif}
+.t-en::before{height:12px;background:repeating-linear-gradient(90deg,#d62839 0 30px,#f6f2e8 30px 60px)}
+.t-en h2{font-family:var(--hd);font-weight:400;font-stretch:100%;font-size:clamp(3.4rem,10.5vw,8.6rem);letter-spacing:.01em;line-height:.86}
+.t-en h2 .it{font-family:var(--hd);font-style:normal;font-weight:400;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+.t-en .numeral{font-family:var(--hd);font-style:normal;font-weight:400;-webkit-text-stroke:1.5px var(--gold)}
+.t-en .arch{border-radius:4px;aspect-ratio:4/5;border-color:var(--accent);box-shadow:0 0 36px rgba(239,62,82,.28),inset 0 0 28px rgba(239,62,82,.14)}
+.t-en .arch::before{border-radius:2px;border-style:dashed;border-color:rgba(255,200,61,.55)}
+.t-en .chips li{border-radius:3px;border-color:var(--accent);color:var(--bone)}
+.t-en .quote{border-left-color:var(--accent)}
+
+/* francês · elegância parisiense: serifa de contraste, rosa e champanhe */
+.t-fr{--gold:#ffeab8;--accent:#ffcf6b;--hd:"Playfair Display",Georgia,serif}
+.t-fr::before{height:5px;background:linear-gradient(90deg,#2b45b0 0 33.3%,#f4efe6 33.3% 66.6%,#d3303f 66.6%)}
+.t-fr h2{font-family:var(--hd);font-weight:800;font-stretch:100%;text-transform:none;letter-spacing:-.025em;font-size:clamp(3rem,9vw,7.2rem);line-height:.95}
+.t-fr h2 .it{color:var(--accent)}
+.t-fr .numeral{font-family:var(--hd);font-weight:700}
+.t-fr .arch{border-color:rgba(236,201,162,.45)}
+.t-fr .arch::before{inset:8px}
+.t-fr .arch::after{content:"";position:absolute;inset:18px;border-radius:999px 999px 2px 2px;border:1px solid rgba(236,201,162,.22);pointer-events:none}
+.t-fr .chips li{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:1.05rem;border-color:rgba(236,201,162,.5)}
+
+/* mandarim · vermelho, ouro, lua e selo */
+.t-zh{--gold:#ffc35a;--accent:#ff6a3d;--hd:"Noto Serif SC","Songti SC","STSong",serif}
+.t-zh::before{height:10px;background:repeating-linear-gradient(90deg,#c4161c 0 44px,#e9b84a 44px 50px)}
+.t-zh h2{font-family:var(--hd);font-weight:900;font-stretch:100%;text-transform:none;letter-spacing:.02em;font-size:clamp(3.2rem,10vw,8.2rem);line-height:1}
+.t-zh h2 .it{color:var(--accent);letter-spacing:0}
+.t-zh .numeral{font-family:var(--hd);font-style:normal;font-weight:900;-webkit-text-stroke:1px var(--accent)}
+.t-zh .numeral::after{content:"中";display:inline-grid;place-items:center;width:.34em;height:.34em;margin-left:.25em;vertical-align:.4em;background:var(--accent);color:var(--bone);-webkit-text-stroke:0;font-size:.36em;line-height:1;border-radius:3px;transform:rotate(-6deg)}
+.t-zh .arch{border-radius:50%;aspect-ratio:1;border-color:rgba(233,184,74,.55);box-shadow:0 0 60px rgba(226,58,47,.22)}
+.t-zh .arch::before{border-radius:50%;border-color:rgba(226,58,47,.5)}
+.t-zh .arch figcaption{bottom:34px}
+.t-zh .chips li{border-radius:0;border-color:var(--accent);background:rgba(196,22,28,.2);color:var(--bone)}
+.t-zh .quote{border-left-color:var(--accent)}
+.t-zh .quote q{font-family:"Noto Serif SC","Songti SC",serif,var(--serif);font-style:normal;font-weight:500;font-size:clamp(1.4rem,2.8vw,2.1rem)}
+
+/* espanhol · azulejos, sol e flamenco */
+.t-es{--gold:#ffb347;--accent:#ff2d43;--hd:"Abril Fatface",Georgia,serif}
+.t-es::before{height:16px;background:repeating-linear-gradient(135deg,#1c5d9e 0 9px,#f4c94a 9px 18px,#f6f0e4 18px 27px,#c9442f 27px 36px)}
+.t-es h2{font-family:var(--hd);font-weight:400;font-stretch:100%;text-transform:none;letter-spacing:-.005em;font-size:clamp(3rem,9.5vw,7.8rem);line-height:.95}
+.t-es h2 .it{color:var(--accent)}
+.t-es .numeral{font-family:var(--hd);font-style:normal;font-weight:400}
+.t-es .arch{border-radius:50% 50% 6px 6px / 36% 36% 6px 6px;border-color:rgba(255,168,69,.55)}
+.t-es .arch::before{border-radius:50% 50% 2px 2px / 36% 36% 2px 2px;border-color:rgba(47,147,224,.45)}
+.t-es .chips li{border-radius:999px 999px 4px 4px;border-color:var(--accent);color:var(--bone)}
+.t-es .quote{border-left-color:var(--accent)}
+
+
+/* ---------- legibilidade ---------- */
+.chapter .ctext{background:linear-gradient(100deg,rgba(6,18,43,.68),rgba(6,18,43,.36));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:clamp(22px,3.2vw,44px);border-radius:8px;border:1px solid rgba(236,227,208,.1)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,18,43,.78) 0,rgba(6,18,43,.4) 48%,rgba(6,18,43,0) 72%);pointer-events:none;z-index:-1}
+.sec .lead,.sec .note{text-shadow:0 1px 12px rgba(6,18,43,.9)}
+.ribbons{opacity:.9}
+[data-px]{will-change:translate}
+
+/* ---------- seções institucionais ---------- */

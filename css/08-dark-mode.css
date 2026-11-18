@@ -1,0 +1,33 @@
+/* 08-dark-mode.css — Botão de tema e modo escuro */
+#ink{position:fixed;inset:0;width:100%;height:100%;z-index:120;pointer-events:none;display:none}
+.themebtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--bone);background:transparent;color:var(--bone);display:grid;place-items:center;cursor:pointer;flex:none;padding:0;transition:transform .4s cubic-bezier(.3,1.4,.5,1),background .25s,color .25s}
+.themebtn:hover{background:var(--bone);color:#f8faff;transform:rotate(25deg)}
+.themebtn .i-sun{display:none}
+html[data-theme=dark] .themebtn .i-sun{display:block}
+html[data-theme=dark] .themebtn .i-moon{display:none}
+html[data-theme=dark]{color-scheme:dark}
+html[data-theme=dark] header,html[data-theme=dark] .foot-piece{background:#0a1430!important;--bone:#ece3d0;--mist:rgba(236,227,208,.78);--line:rgba(255,255,255,.16);--gold:#e0a82e;--glass:rgba(255,255,255,.06);color:#ece3d0}
+html[data-theme=dark] header .logo{color:#ece3d0}
+html[data-theme=dark] header .logo img{box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+html[data-theme=dark] header .btn{background:#e8aa25;border-color:#e8aa25;color:#0b1f4d}
+html[data-theme=dark] .themebtn:hover{color:#0a1430}
+html[data-theme=dark] .foot-piece b,html[data-theme=dark] .foot-piece .dom{color:#ece3d0}
+html[data-theme=dark] .foot-piece a{color:#8fb0ff}
+html[data-theme=dark] .sheet{--bone:#ece3d0;--mist:rgba(236,227,208,.78);--line:rgba(255,255,255,.16);--glass:rgba(255,255,255,.055);--gold:#e0a82e;background:linear-gradient(180deg,#0a1430 0,#0d1a3d 55%,#0a1430 100%)}
+html[data-theme=dark] .sheet h2 .it{color:#8fb0ff}
+html[data-theme=dark] .sheet .eyebrow,html[data-theme=dark] .sheet .kicker{color:#e0a82e}
+html[data-theme=dark] .sheet .card{box-shadow:0 26px 60px -26px rgba(0,0,0,.7);border-color:rgba(255,255,255,.12)}
+html[data-theme=dark] .sheet .card.tech{background:linear-gradient(180deg,rgba(31,86,184,.35),rgba(255,255,255,.04))}
+html[data-theme=dark] .sheet .btn:hover{background:var(--bone);color:#0a1430}
+html[data-theme=dark] .sheet .ph{border-color:rgba(255,255,255,.28)}
+html[data-theme=dark] .sheet .tile,html[data-theme=dark] .sheet .steps li::after{background:#0d1a3d}
+html[data-theme=dark] .sheet .btn.solid:hover{background:#ece3d0;border-color:#ece3d0;color:#0a1430}
+html[data-theme=dark] .sheet .fphoto img{box-shadow:0 0 0 10px rgba(232,170,37,.18),0 34px 70px -24px rgba(0,0,0,.8)}
+html[data-theme=dark] .sheet .bubble{background:#16244a;color:#ece3d0;box-shadow:0 28px 54px -20px rgba(0,0,0,.8)}
+html[data-theme=dark] .sheet .pix rect:nth-child(4){fill:#ece3d0}
+html[data-theme=dark] .sheet .book path[stroke="#0b1f4d"]{stroke:#ece3d0}
+html[data-theme=dark] .sheet::before{background-image:var(--edgeT,none),linear-gradient(180deg,rgba(40,70,160,0),rgba(40,70,160,.22) 75%,rgba(10,20,48,.35))!important}
+html[data-theme=dark] .sheet::after{background-image:var(--edgeB,none),linear-gradient(0deg,rgba(40,70,160,0),rgba(40,70,160,.2) 75%,rgba(10,20,48,.3))!important}
+html[data-theme=dark] .sheet h2,html[data-theme=dark] .sheet h3{color:var(--bone)}
+
+/* realce das camadas em paralaxe nos capítulos */

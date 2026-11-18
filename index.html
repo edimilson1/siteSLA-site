@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Silvério Languages Academy — conectando pessoas ao mundo através dos idiomas. Inglês, francês, espanhol, mandarim e inteligência artificial, online e ao vivo.">
+<meta name="theme-color" content="#06122b">
+<title>Silvério Languages Academy</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..900&family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&family=Noto+Serif+SC:wght@500;900&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,800;1,700&family=Abril+Fatface&family=DM+Mono:wght@400;500&display=swap">
+<!-- estilos próprios, um arquivo por assunto -->
+<link rel="stylesheet" href="css/01-base.css">
+<link rel="stylesheet" href="css/02-nav.css">
+<link rel="stylesheet" href="css/03-hero.css">
+<link rel="stylesheet" href="css/04-chapters.css">
+<link rel="stylesheet" href="css/05-languages.css">
+<link rel="stylesheet" href="css/06-sections.css">
+<link rel="stylesheet" href="css/07-sheet.css">
+<link rel="stylesheet" href="css/08-dark-mode.css">
+<link rel="stylesheet" href="css/09-parallax-fx.css">
+</head>
+<body>
+
+<!-- ═══════ GRADIENTES SVG GLOBAIS ═══════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gLeaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a0"/><stop offset=".55" stop-color="#e3b83a"/><stop offset="1" stop-color="#8a9a2c"/></linearGradient><radialGradient id="gLantern" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#ff7a52"/><stop offset=".55" stop-color="#d4161c"/><stop offset="1" stop-color="#7a0610"/></radialGradient></defs></svg>
+<!-- ═══════ PALCO WEBGL, BARRA DE PROGRESSO E CANVAS DO MODO ESCURO ═══════ -->
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<canvas id="ink" aria-hidden="true"></canvas>
+
+<!-- ═══════ CABEÇALHO / MENU ═══════ -->
+<header>
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Silvério Languages Academy, início"><img src="img/logo.jpg" alt="Logotipo da Silvério Languages Academy" width="46" height="46"><span>SLA</span> <small>Silvério Languages Academy</small></a>
+    <nav aria-label="Principal">
+      <a href="#historia">História</a>
+      <a href="#fundador">Fundador</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#contato">Contato</a>
+      <a class="btn" data-ead href="#contato">Estude online</a>
+      <button class="themebtn" id="themebtn" type="button" aria-label="Ativar modo escuro" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7"/></g></svg></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════ PONTOS DE CAPÍTULO E AVISOS (TOAST) ═══════ -->
+<div class="dots" id="dots" aria-label="Capítulos"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<main id="topo">
+  <!-- ═══════ PRIMEIRA TELA (HERO) ═══════ -->
+  <section class="hero" data-ch="0">
+    <div class="wrap hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow">Silvério Languages Academy · online e ao vivo</p>
+        <h1 aria-label="SLA"><span style="--i:0">S</span><span style="--i:1">L</span><span style="--i:2">A</span></h1>
+        <div class="hero-sub">
+          <p class="lede">Conectando pessoas ao mundo <em>através dos idiomas.</em></p>
+          <div class="hero-side">
+            <p>Ensino de idiomas e formação educacional online, em aulas coletivas ou particulares: inglês, francês, espanhol, mandarim e inteligência artificial.</p>
+            <div class="actions">
+              <a class="btn solid" data-ead href="#contato">Estude online · Plataforma EAD →</a>
+              <a class="btn" data-wa="sec" target="_blank" rel="noopener" href="https://wa.me/5571982606512">Falar com a secretaria</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="director">
+        <div class="stage">
+          <div class="disc" data-px=".1" data-mx="10" aria-hidden="true"></div>
+          <svg class="ribbons" data-px="-.16" data-mx="-18" viewBox="0 0 100 114" aria-hidden="true" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="rg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#dba52e"/><stop offset="1" stop-color="#b9781a"/></linearGradient>
+              <linearGradient id="rg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb2ff"/><stop offset=".55" stop-color="#2a62c9"/><stop offset="1" stop-color="#0b2a6b"/></linearGradient>
+              <linearGradient id="rg3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9cc0ff"/></linearGradient>
+            </defs>
+            <g class="rb a"><path d="M-8 62C6 30 26 58 36 26S66 -8 108 12" stroke="url(#rg1)" stroke-width="5.2"/></g>
+            <g class="rb b"><path d="M108 58C90 30 70 66 58 38S22 28 -8 10" stroke="url(#rg2)" stroke-width="4.4"/></g>
+            <g class="rb c"><path d="M-8 98C20 78 38 108 68 88S96 82 108 100" stroke="url(#rg3)" stroke-width="2.6"/></g>
+          </svg>
+          <div class="cutbox" data-px=".04" data-mx="5">
+            <img class="cut" src="img/ceo_cut.webp" alt="Silvério Justino Nanque, fundador e CEO da Silvério Languages Academy" width="860" height="983">
+            <canvas id="ascii" role="img" aria-label="Retrato de Silvério Justino Nanque desenhado em ASCII art"></canvas>
+          </div>
+        </div>
+        <figcaption><b>Silvério Justino Nanque</b><span>Fundador e CEO</span></figcaption>
+        <div class="badge" data-px="-.22" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circ" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs>
+            <g class="ring"><text><textPath href="#circ">english · français · 中文 · español · </textPath></text></g>
+            <g fill="none" stroke="#dba52e" stroke-width="1.4" stroke-linecap="round">
+              <circle cx="100" cy="100" r="40"/><ellipse cx="100" cy="100" rx="16" ry="40"/><ellipse cx="100" cy="100" rx="30" ry="40"/>
+              <path d="M60 100H140M68 78H132M68 122H132"/>
+            </g>
+          </svg>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════ HISTÓRIA DA ACADEMIA ═══════ -->
+  <section class="chapter on-paper" id="historia" data-ch="1">
+    <div class="wrap">
+      <div class="ctext">
+        <span class="numeral" data-r>I</span>
+        <h2 data-r style="--d:80">Nossa <span class="it">história</span></h2>
+        <p class="gloss" data-r style="--d:140"><b>SLA</b> · Silvério Languages Academy · ensino de idiomas e formação educacional online</p>
+        <div class="body" data-r style="--d:200">
+          <p>A Silvério Languages Academy nasceu de uma visão educacional e empreendedora: tornar o ensino de idiomas mais acessível e aproximar pessoas de diferentes partes do mundo.</p>
+          <p>Fundada por Silvério Justino Nanque, educador e empreendedor guineense, a academia surgiu a partir da sua experiência educacional na Guiné-Bissau e da sua trajetória de formação e atuação no Brasil.</p>
+          <p>A SLA iniciou as suas atividades no formato online, com o propósito de ultrapassar fronteiras geográficas e oferecer oportunidades de aprendizagem a estudantes de diferentes países. Desde a fundação, trabalha uma metodologia dinâmica, participativa e orientada para a comunicação prática.</p>
+          <p>Atualmente, procura consolidar a sua presença internacional, ampliando as oportunidades de aprendizagem e promovendo a conexão entre culturas através dos idiomas.</p>
+        </div>
+        <blockquote class="quote" data-r style="--d:260">
+          <q>Conectando pessoas ao mundo através dos idiomas.</q>
+          <cite>Slogan da SLA</cite>
+        </blockquote>
+      </div>
+      <figure class="cart arch" data-px="-.1" data-r style="--d:150">
+        <svg class="draw" viewBox="0 0 240 320" aria-label="Globo terrestre em um suporte" role="img">
+          <circle pathLength="1" style="--k:0" cx="120" cy="150" r="72"/>
+          <ellipse pathLength="1" style="--k:1" cx="120" cy="150" rx="28" ry="72"/>
+          <ellipse pathLength="1" style="--k:2" cx="120" cy="150" rx="52" ry="72"/>
+          <path pathLength="1" style="--k:3" d="M48 150H192M60 110H180M60 190H180"/>
+          <path pathLength="1" style="--k:4" d="M62 232C86 270 154 270 178 232"/>
+          <path pathLength="1" style="--k:5" d="M120 262V292M82 294H158"/>
+        </svg>
+        <figcaption>SLA · desde o começo</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════ IDIOMA · INGLÊS ═══════ -->
+  <section class="chapter t-en" data-ch="2" data-word="HELLO">
+    <span class="fl ghost" data-px=".22" style="right:-2%;bottom:2%" aria-hidden="true">HELLO</span><i class="fl bk" data-px="-.5" style="--s:220px;left:6%;top:14%;--c:var(--gold);--o:.38;--b:6px" aria-hidden="true"></i><i class="fl bk" data-px=".45" style="--s:140px;right:12%;top:30%;--c:var(--accent);--o:.4;--b:3px" aria-hidden="true"></i><i class="fl bk" data-px="-.3" style="--s:90px;left:30%;top:70%;--c:#fff;--o:.35;--b:1px" aria-hidden="true"></i><i class="fl bk" data-px=".6" style="--s:300px;right:-4%;top:70%;--c:var(--gold);--o:.28;--b:12px" aria-hidden="true"></i>
+    <span class="fl bubble " data-px="-.24" style="left:44%;top:6%" aria-hidden="true"><b>EN</b>Hello</span><i class="fl orb " data-px=".3" style="--s:88px;right:3%;top:62%" aria-hidden="true"></i>
+    <svg class="fl clockf" data-px="-.34" data-rot="2" style="width:170px;right:5%;top:56%;filter:drop-shadow(0 0 28px rgba(255,200,90,.7))" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="rgba(6,12,32,.55)" stroke="#ffd27a" stroke-width="5"/><circle cx="60" cy="60" r="46" fill="none" stroke="#ffd27a" stroke-width="1.4" opacity=".6"/><path d="M60 12V26" stroke="#ffd27a" stroke-width="3.4" transform="rotate(0 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(30 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(60 60 60)"/><path d="M60 12V26" stroke="#ffd27a" stroke-width="3.4" transform="rotate(90 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(120 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(150 60 60)"/><path d="M60 12V26" stroke="#ffd27a" stroke-width="3.4" transform="rotate(180 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(210 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(240 60 60)"/><path d="M60 12V26" stroke="#ffd27a" stroke-width="3.4" transform="rotate(270 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(300 60 60)"/><path d="M60 12V20" stroke="#ffd27a" stroke-width="2" transform="rotate(330 60 60)"/><g class="hm"><path d="M60 60V30" stroke="#fff3c4" stroke-width="4.5" stroke-linecap="round"/></g><g class="hh"><path d="M60 60V40" stroke="#fff3c4" stroke-width="6" stroke-linecap="round"/></g><circle cx="60" cy="60" r="4.5" fill="#ffd27a"/></svg><svg class="fl glint " data-px="-.55" style="width:46px;left:8%;top:22%;--dl:0s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint " data-px=".5" style="width:30px;left:36%;top:40%;--dl:.8s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint " data-px="-.4" style="width:54px;right:30%;top:14%;--dl:1.4s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint " data-px=".6" style="width:26px;right:12%;top:78%;--dl:2s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint " data-px="-.3" style="width:38px;left:22%;top:80%;--dl:.4s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><i class="fl bk front" data-px="-.7" style="--s:340px;right:-6%;top:6%;--c:#ffb35a;--o:.4;--b:14px" aria-hidden="true"></i><i class="fl bk front" data-px=".75" style="--s:200px;left:-4%;top:74%;--c:#b98cff;--o:.4;--b:10px" aria-hidden="true"></i>
+    <div class="wrap">
+      <div class="ctext">
+        <span class="numeral" data-r>II</span>
+        <h2 data-r style="--d:80">English <span class="it">inglês</span></h2>
+        <p class="gloss" data-r style="--d:140"><b>english</b> /ˈɪŋɡlɪʃ/ · a língua dos negócios, da ciência, do cinema e do rock</p>
+        <div class="body" data-r style="--d:200">
+          <p>De Londres a Nova York, de Sydney a Toronto, o inglês circula por todos os continentes: é a língua dos negócios, da ciência, do cinema e da música. Quando o mundo não tem outra em comum, costuma ser esta.</p>
+          <p>Na SLA, o inglês é ensinado para comunicar: falar, ouvir, ler e escrever em situações reais de estudo, trabalho e viagem.</p>
+          <p>Disponível em aulas coletivas ou particulares, do nível N0 ao N5.</p>
+        </div>
+        <ul class="chips" data-r style="--d:240"><li>Big Ben</li><li>Rio Tâmisa</li><li>Shakespeare</li><li>Rock &amp; pop</li><li>Cinema</li><li>Negócios</li></ul>
+        <blockquote class="quote" data-r style="--d:280">
+          <q>When a man is tired of London, he is tired of life.</q>
+          <cite>Samuel Johnson · via James Boswell</cite>
+          <span>Quando um homem se cansa de Londres, cansa-se da vida.</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ IDIOMA · FRANCÊS ═══════ -->
+  <section class="chapter t-fr" data-ch="3" data-word="Bonjour">
+    <span class="fl ghost" data-px=".22" style="left:-2%;bottom:2%" aria-hidden="true">Bonjour</span><i class="fl bk" data-px="-.5" style="--s:240px;right:8%;top:10%;--c:var(--gold);--o:.42;--b:6px" aria-hidden="true"></i><i class="fl bk" data-px=".45" style="--s:130px;left:10%;top:34%;--c:#fff;--o:.4;--b:3px" aria-hidden="true"></i><i class="fl bk" data-px="-.3" style="--s:100px;right:30%;top:72%;--c:var(--accent);--o:.38;--b:2px" aria-hidden="true"></i><i class="fl bk" data-px=".6" style="--s:320px;left:-5%;top:68%;--c:var(--gold);--o:.26;--b:12px" aria-hidden="true"></i>
+    <span class="fl bubble " data-px="-.22" style="left:46%;top:7%" aria-hidden="true"><b>FR</b>Bonjour</span><i class="fl orb " data-px=".28" style="--s:84px;right:2%;top:66%" aria-hidden="true"></i>
+    <svg class="fl leaf oy" data-px="-.62" data-rot="3" style="width:110px;left:2%;top:6%;filter:blur(2px)" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf g" data-px=".5" data-rot="-4" style="width:64px;left:30%;top:20%" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf g" data-px="-.38" data-rot="5" style="width:80px;right:8%;top:14%" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf oy front" data-px=".7" data-rot="-3" style="width:140px;right:-2%;top:44%;filter:blur(4px)" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf oy" data-px="-.5" data-rot="4" style="width:58px;left:46%;top:72%" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf g" data-px=".42" data-rot="-6" style="width:92px;left:6%;top:70%;filter:blur(1.5px)" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf oy front" data-px="-.72" data-rot="3" style="width:120px;right:22%;top:84%;filter:blur(3px)" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl leaf g" data-px=".3" data-rot="5" style="width:50px;right:36%;top:46%" viewBox="0 0 60 82" aria-hidden="true"><path d="M30 3C54 22 57 54 30 79C3 54 6 22 30 3Z" fill="url(#gLeaf)"/><path d="M30 9V76M30 30L19 20M30 42L15 31M30 54L18 45M30 30L41 20M30 42L45 31M30 54L42 45" stroke="rgba(90,70,10,.45)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><svg class="fl glint gold" data-px="-.5" style="width:40px;left:12%;top:38%;--dl:.2s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint gold" data-px=".55" style="width:30px;right:20%;top:30%;--dl:1.1s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint gold" data-px="-.35" style="width:48px;right:4%;top:70%;--dl:1.8s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg>
+    <div class="wrap">
+      <div class="ctext">
+        <span class="numeral" data-r>III</span>
+        <h2 data-r style="--d:80">Français <span class="it">francês</span></h2>
+        <p class="gloss" data-r style="--d:140"><b>français</b> /fʁɑ̃.sɛ/ · a língua da diplomacia, da gastronomia e do cinema</p>
+        <div class="body" data-r style="--d:200">
+          <p>Em Paris, falar bem é uma forma de cortesia. Um bonjour dito antes de qualquer pedido muda a conversa inteira.</p>
+          <p>O francês é a língua de Paris, do Quebec e de boa parte da África. Na SLA, ele chega com a cultura que o acompanha: cinema, canção, gastronomia e filosofia.</p>
+          <p>Disponível em aulas coletivas ou particulares, do nível N0 ao N5.</p>
+        </div>
+        <ul class="chips" data-r style="--d:240"><li>Cinéma</li><li>Boulangerie</li><li>Impressionnisme</li><li>Chanson</li><li>Mode</li><li>Philosophie</li></ul>
+        <blockquote class="quote" data-r style="--d:260">
+          <q>Le cœur a ses raisons que la raison ne connaît point.</q>
+          <cite>Blaise Pascal · Pensées</cite>
+          <span>O coração tem razões que a própria razão desconhece.</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ IDIOMA · MANDARIM ═══════ -->
+  <section class="chapter flip t-zh" data-ch="4" data-word="你好">
+    <span class="fl ghost" data-px=".22" style="right:-2%;bottom:0" aria-hidden="true">你好</span><i class="fl bk" data-px="-.5" style="--s:230px;left:8%;top:12%;--c:var(--gold);--o:.4;--b:6px" aria-hidden="true"></i><i class="fl bk" data-px=".45" style="--s:150px;right:10%;top:32%;--c:var(--accent);--o:.42;--b:3px" aria-hidden="true"></i><i class="fl bk" data-px="-.3" style="--s:90px;left:34%;top:72%;--c:#ffe3a0;--o:.4;--b:1px" aria-hidden="true"></i><i class="fl bk" data-px=".6" style="--s:320px;right:-5%;top:68%;--c:var(--accent);--o:.28;--b:12px" aria-hidden="true"></i>
+    <span class="fl bubble " data-px="-.22" style="left:40%;top:6%" aria-hidden="true"><b>中文</b>你好</span><i class="fl orb " data-px=".3" style="--s:90px;left:2%;top:64%" aria-hidden="true"></i>
+    <svg class="fl lantern " data-px="-.6" data-rot="2" style="width:84px;right:6%;top:-3%;filter:drop-shadow(0 0 26px rgba(255,80,30,.8))" viewBox="0 0 70 130" aria-hidden="true"><path d="M35 0V16" stroke="#e8b84a" stroke-width="2.5"/><rect x="20" y="14" width="30" height="9" rx="3" fill="#e8b84a"/><ellipse cx="35" cy="56" rx="29" ry="34" fill="url(#gLantern)"/><path d="M35 22C20 34 20 78 35 90M35 22C50 34 50 78 35 90M35 22V90M18 30C14 46 14 66 18 80M52 30C56 46 56 66 52 80" stroke="rgba(120,10,10,.55)" stroke-width="1.8" fill="none"/><rect x="22" y="88" width="26" height="9" rx="3" fill="#e8b84a"/><path d="M27 97V122M35 97V128M43 97V122" stroke="#ffd36a" stroke-width="2.4" stroke-linecap="round"/><text x="35" y="64" text-anchor="middle" font-size="24" font-family="Noto Serif SC,serif" font-weight="900" fill="#ffd36a">福</text></svg><svg class="fl lantern " data-px=".5" data-rot="-2" style="width:60px;right:24%;top:4%;filter:drop-shadow(0 0 20px rgba(255,80,30,.7))" viewBox="0 0 70 130" aria-hidden="true"><path d="M35 0V16" stroke="#e8b84a" stroke-width="2.5"/><rect x="20" y="14" width="30" height="9" rx="3" fill="#e8b84a"/><ellipse cx="35" cy="56" rx="29" ry="34" fill="url(#gLantern)"/><path d="M35 22C20 34 20 78 35 90M35 22C50 34 50 78 35 90M35 22V90M18 30C14 46 14 66 18 80M52 30C56 46 56 66 52 80" stroke="rgba(120,10,10,.55)" stroke-width="1.8" fill="none"/><rect x="22" y="88" width="26" height="9" rx="3" fill="#e8b84a"/><path d="M27 97V122M35 97V128M43 97V122" stroke="#ffd36a" stroke-width="2.4" stroke-linecap="round"/><text x="35" y="64" text-anchor="middle" font-size="24" font-family="Noto Serif SC,serif" font-weight="900" fill="#ffd36a">福</text></svg><svg class="fl lantern " data-px="-.42" data-rot="3" style="width:70px;left:3%;top:56%;filter:drop-shadow(0 0 22px rgba(255,80,30,.7))" viewBox="0 0 70 130" aria-hidden="true"><path d="M35 0V16" stroke="#e8b84a" stroke-width="2.5"/><rect x="20" y="14" width="30" height="9" rx="3" fill="#e8b84a"/><ellipse cx="35" cy="56" rx="29" ry="34" fill="url(#gLantern)"/><path d="M35 22C20 34 20 78 35 90M35 22C50 34 50 78 35 90M35 22V90M18 30C14 46 14 66 18 80M52 30C56 46 56 66 52 80" stroke="rgba(120,10,10,.55)" stroke-width="1.8" fill="none"/><rect x="22" y="88" width="26" height="9" rx="3" fill="#e8b84a"/><path d="M27 97V122M35 97V128M43 97V122" stroke="#ffd36a" stroke-width="2.4" stroke-linecap="round"/><text x="35" y="64" text-anchor="middle" font-size="24" font-family="Noto Serif SC,serif" font-weight="900" fill="#ffd36a">福</text></svg><svg class="fl lantern front" data-px=".72" data-rot="-2" style="width:120px;right:-2%;top:58%;filter:drop-shadow(0 0 34px rgba(255,80,30,.85)) blur(1.5px)" viewBox="0 0 70 130" aria-hidden="true"><path d="M35 0V16" stroke="#e8b84a" stroke-width="2.5"/><rect x="20" y="14" width="30" height="9" rx="3" fill="#e8b84a"/><ellipse cx="35" cy="56" rx="29" ry="34" fill="url(#gLantern)"/><path d="M35 22C20 34 20 78 35 90M35 22C50 34 50 78 35 90M35 22V90M18 30C14 46 14 66 18 80M52 30C56 46 56 66 52 80" stroke="rgba(120,10,10,.55)" stroke-width="1.8" fill="none"/><rect x="22" y="88" width="26" height="9" rx="3" fill="#e8b84a"/><path d="M27 97V122M35 97V128M43 97V122" stroke="#ffd36a" stroke-width="2.4" stroke-linecap="round"/><text x="35" y="64" text-anchor="middle" font-size="24" font-family="Noto Serif SC,serif" font-weight="900" fill="#ffd36a">福</text></svg><svg class="fl lantern " data-px="-.3" data-rot="2" style="width:46px;left:40%;top:78%;filter:drop-shadow(0 0 16px rgba(255,80,30,.7))" viewBox="0 0 70 130" aria-hidden="true"><path d="M35 0V16" stroke="#e8b84a" stroke-width="2.5"/><rect x="20" y="14" width="30" height="9" rx="3" fill="#e8b84a"/><ellipse cx="35" cy="56" rx="29" ry="34" fill="url(#gLantern)"/><path d="M35 22C20 34 20 78 35 90M35 22C50 34 50 78 35 90M35 22V90M18 30C14 46 14 66 18 80M52 30C56 46 56 66 52 80" stroke="rgba(120,10,10,.55)" stroke-width="1.8" fill="none"/><rect x="22" y="88" width="26" height="9" rx="3" fill="#e8b84a"/><path d="M27 97V122M35 97V128M43 97V122" stroke="#ffd36a" stroke-width="2.4" stroke-linecap="round"/><text x="35" y="64" text-anchor="middle" font-size="24" font-family="Noto Serif SC,serif" font-weight="900" fill="#ffd36a">福</text></svg><svg class="fl glint gold" data-px="-.5" style="width:34px;left:20%;top:22%;--dl:.3s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint gold" data-px=".5" style="width:44px;right:34%;top:40%;--dl:1.2s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg><svg class="fl glint gold" data-px="-.4" style="width:28px;right:12%;top:80%;--dl:2s" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C21.5 12 28 18.5 40 20C28 21.5 21.5 28 20 40C18.5 28 12 21.5 0 20C12 18.5 18.5 12 20 0Z" fill="#fff6d0"/></svg>
+    <div class="wrap">
+      <div class="ctext">
+        <span class="numeral" data-r>IV</span>
+        <h2 data-r style="--d:80">中文 <span class="it">mandarim</span></h2>
+        <p class="gloss" data-r style="--d:140"><b>中文 zhōngwén</b> · o mandarim, língua materna de mais de 900 milhões de pessoas</p>
+        <div class="body" data-r style="--d:200">
+          <p>O mandarim parece distante até o primeiro tom sair certo. Quatro tons, uma escrita feita de imagens e uma lógica que não se parece com a nossa: é isso que torna o aprendizado tão viciante.</p>
+          <p>O curso de mandarim da SLA começa do nível zero. Os caracteres entram aos poucos, cada um com sua história: 好, hǎo, junta uma mulher 女 e uma criança 子, e quer dizer “bom”.</p>
+          <p>Disponível em aulas coletivas ou particulares.</p>
+        </div>
+        <ul class="chips" data-r style="--d:240"><li>Chá</li><li>Caligrafia</li><li>Festival da Primavera</li><li>Kung fu</li><li>Culinária</li><li>Provérbios</li></ul>
+        <blockquote class="quote" data-r style="--d:260">
+          <q lang="zh">千里之行，始于足下。</q>
+          <cite>Laozi · Dao De Jing · Qiān lǐ zhī xíng, shǐ yú zú xià</cite>
+          <span>Uma jornada de mil li começa debaixo dos pés.</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ IDIOMA · ESPANHOL ═══════ -->
+  <section class="chapter t-es" data-ch="5" data-word="Hola">
+    <span class="fl ghost" data-px=".22" style="left:-2%;bottom:2%" aria-hidden="true">Hola</span><i class="fl bk" data-px="-.5" style="--s:220px;right:8%;top:12%;--c:var(--accent);--o:.42;--b:6px" aria-hidden="true"></i><i class="fl bk" data-px=".45" style="--s:130px;left:9%;top:34%;--c:var(--gold);--o:.4;--b:3px" aria-hidden="true"></i><i class="fl bk" data-px="-.3" style="--s:90px;right:34%;top:72%;--c:#fff;--o:.32;--b:1px" aria-hidden="true"></i><i class="fl bk" data-px=".6" style="--s:320px;left:-5%;top:68%;--c:var(--accent);--o:.3;--b:12px" aria-hidden="true"></i>
+    <span class="fl bubble " data-px="-.22" style="left:44%;top:6%" aria-hidden="true"><b>ES</b>Hola</span><i class="fl orb " data-px=".28" style="--s:86px;right:3%;top:64%" aria-hidden="true"></i>
+    <svg class="fl splat" data-px="-.5" data-rot="3" style="width:220px;right:2%;top:2%;opacity:.9" viewBox="0 0 200 200" aria-hidden="true"><path d="M150.6 93.4 Q147.6 100.0 148.4 106.1 Q149.2 112.1 149.5 119.1 Q149.8 126.1 133.9 121.0 Q118.0 115.9 121.7 126.4 Q125.5 136.9 125.0 150.9 Q124.6 164.8 116.1 163.6 Q107.6 162.4 98.7 173.2 Q89.8 184.1 83.1 173.0 Q76.5 162.0 72.3 154.0 Q68.2 146.1 65.2 139.8 Q62.2 133.5 65.8 124.8 Q69.3 116.1 52.0 116.1 Q34.7 116.1 39.8 108.0 Q44.9 100.0 47.3 93.8 Q49.6 87.6 45.4 78.4 Q41.2 69.1 43.8 60.8 Q46.4 52.5 57.9 54.1 Q69.4 55.7 74.1 49.9 Q78.8 44.1 86.0 44.3 Q93.3 44.5 99.6 47.7 Q106.0 50.9 109.7 57.7 Q113.5 64.4 119.8 63.3 Q126.1 62.2 138.2 58.8 Q150.2 55.5 156.3 61.4 Q162.4 67.2 158.0 77.0 Q153.5 86.8 150.6 93.4Z" fill="#c8101e"/><path d="M150.6 93.4 Q147.6 100.0 148.4 106.1 Q149.2 112.1 149.5 119.1 Q149.8 126.1 133.9 121.0 Q118.0 115.9 121.7 126.4 Q125.5 136.9 125.0 150.9 Q124.6 164.8 116.1 163.6 Q107.6 162.4 98.7 173.2 Q89.8 184.1 83.1 173.0 Q76.5 162.0 72.3 154.0 Q68.2 146.1 65.2 139.8 Q62.2 133.5 65.8 124.8 Q69.3 116.1 52.0 116.1 Q34.7 116.1 39.8 108.0 Q44.9 100.0 47.3 93.8 Q49.6 87.6 45.4 78.4 Q41.2 69.1 43.8 60.8 Q46.4 52.5 57.9 54.1 Q69.4 55.7 74.1 49.9 Q78.8 44.1 86.0 44.3 Q93.3 44.5 99.6 47.7 Q106.0 50.9 109.7 57.7 Q113.5 64.4 119.8 63.3 Q126.1 62.2 138.2 58.8 Q150.2 55.5 156.3 61.4 Q162.4 67.2 158.0 77.0 Q153.5 86.8 150.6 93.4Z" fill="#7a0610" transform="translate(100 100) scale(.55) translate(-100 -100)" opacity=".8"/><circle cx="160.4" cy="23.1" r="5.2" fill="#14080a"/><circle cx="149.5" cy="181.3" r="6.8" fill="#c8101e"/><circle cx="173.7" cy="49.4" r="5.5" fill="#c8101e"/><circle cx="122.9" cy="191.8" r="4.7" fill="#14080a"/><circle cx="82.8" cy="177.4" r="6.2" fill="#c8101e"/><circle cx="179.6" cy="94.6" r="5.9" fill="#c8101e"/><circle cx="31.5" cy="143.3" r="3.2" fill="#14080a"/><circle cx="111.0" cy="5.2" r="1.8" fill="#c8101e"/><circle cx="40.6" cy="48.1" r="5.5" fill="#c8101e"/></svg><svg class="fl splat" data-px=".45" data-rot="-4" style="width:120px;left:2%;top:58%;opacity:.8" viewBox="0 0 200 200" aria-hidden="true"><path d="M165.6 91.2 Q159.5 100.0 153.0 105.7 Q146.4 111.4 145.8 117.6 Q145.1 123.7 151.6 137.5 Q158.0 151.4 138.0 138.8 Q118.0 126.1 114.9 128.5 Q111.8 131.0 109.0 141.5 Q106.3 152.1 99.7 154.5 Q93.1 157.0 87.6 152.2 Q82.0 147.4 73.6 148.9 Q65.2 150.5 47.3 156.5 Q29.4 162.5 45.2 141.5 Q60.9 120.5 68.1 113.3 Q75.3 106.1 68.6 103.0 Q61.9 100.0 57.4 94.2 Q53.0 88.4 55.9 83.4 Q58.8 78.4 57.9 70.2 Q57.1 62.0 50.6 40.5 Q44.2 19.1 59.2 25.6 Q74.3 32.1 84.5 44.7 Q94.8 57.3 99.9 58.4 Q104.9 59.4 111.3 56.3 Q117.7 53.3 119.6 61.0 Q121.6 68.8 122.6 73.9 Q123.7 79.0 134.4 77.6 Q145.1 76.3 158.4 79.3 Q171.7 82.3 165.6 91.2Z" fill="#c8101e"/><path d="M165.6 91.2 Q159.5 100.0 153.0 105.7 Q146.4 111.4 145.8 117.6 Q145.1 123.7 151.6 137.5 Q158.0 151.4 138.0 138.8 Q118.0 126.1 114.9 128.5 Q111.8 131.0 109.0 141.5 Q106.3 152.1 99.7 154.5 Q93.1 157.0 87.6 152.2 Q82.0 147.4 73.6 148.9 Q65.2 150.5 47.3 156.5 Q29.4 162.5 45.2 141.5 Q60.9 120.5 68.1 113.3 Q75.3 106.1 68.6 103.0 Q61.9 100.0 57.4 94.2 Q53.0 88.4 55.9 83.4 Q58.8 78.4 57.9 70.2 Q57.1 62.0 50.6 40.5 Q44.2 19.1 59.2 25.6 Q74.3 32.1 84.5 44.7 Q94.8 57.3 99.9 58.4 Q104.9 59.4 111.3 56.3 Q117.7 53.3 119.6 61.0 Q121.6 68.8 122.6 73.9 Q123.7 79.0 134.4 77.6 Q145.1 76.3 158.4 79.3 Q171.7 82.3 165.6 91.2Z" fill="#7a0610" transform="translate(100 100) scale(.55) translate(-100 -100)" opacity=".8"/><circle cx="148.6" cy="26.6" r="2.7" fill="#14080a"/><circle cx="152.0" cy="171.7" r="4.4" fill="#c8101e"/><circle cx="186.6" cy="141.7" r="4.3" fill="#c8101e"/><circle cx="75.0" cy="21.5" r="2.9" fill="#14080a"/><circle cx="184.6" cy="106.3" r="3.0" fill="#c8101e"/><circle cx="24.2" cy="139.7" r="6.1" fill="#c8101e"/><circle cx="163.1" cy="48.4" r="3.7" fill="#14080a"/><circle cx="145.9" cy="178.9" r="6.9" fill="#c8101e"/><circle cx="127.9" cy="189.1" r="3.2" fill="#c8101e"/></svg><svg class="fl splat" data-px="-.7" data-rot="5" style="width:300px;right:-6%;top:56%;opacity:.95;filter:blur(1.2px)" viewBox="0 0 200 200" aria-hidden="true"><path d="M138.3 94.7 Q133.5 100.0 135.8 104.7 Q138.1 109.4 146.7 119.2 Q155.2 129.0 151.0 135.2 Q146.8 141.5 140.9 146.1 Q135.0 150.7 133.3 167.1 Q131.7 183.6 119.5 171.8 Q107.3 160.0 101.0 151.8 Q94.7 143.7 91.5 137.3 Q88.3 130.9 83.6 130.7 Q78.9 130.6 57.9 143.2 Q37.0 155.8 32.2 147.0 Q27.4 138.1 23.8 128.9 Q20.2 119.7 27.9 109.8 Q35.6 100.0 23.8 89.2 Q12.1 78.3 35.4 78.3 Q58.6 78.3 67.3 78.5 Q75.9 78.6 75.2 70.8 Q74.4 63.0 79.9 62.3 Q85.4 61.6 90.1 59.5 Q94.8 57.4 101.2 47.9 Q107.5 38.4 122.4 20.0 Q137.3 1.7 142.8 15.8 Q148.3 30.0 140.8 50.3 Q133.2 70.6 135.7 75.3 Q138.2 80.0 140.7 84.7 Q143.2 89.3 138.3 94.7Z" fill="#c8101e"/><path d="M138.3 94.7 Q133.5 100.0 135.8 104.7 Q138.1 109.4 146.7 119.2 Q155.2 129.0 151.0 135.2 Q146.8 141.5 140.9 146.1 Q135.0 150.7 133.3 167.1 Q131.7 183.6 119.5 171.8 Q107.3 160.0 101.0 151.8 Q94.7 143.7 91.5 137.3 Q88.3 130.9 83.6 130.7 Q78.9 130.6 57.9 143.2 Q37.0 155.8 32.2 147.0 Q27.4 138.1 23.8 128.9 Q20.2 119.7 27.9 109.8 Q35.6 100.0 23.8 89.2 Q12.1 78.3 35.4 78.3 Q58.6 78.3 67.3 78.5 Q75.9 78.6 75.2 70.8 Q74.4 63.0 79.9 62.3 Q85.4 61.6 90.1 59.5 Q94.8 57.4 101.2 47.9 Q107.5 38.4 122.4 20.0 Q137.3 1.7 142.8 15.8 Q148.3 30.0 140.8 50.3 Q133.2 70.6 135.7 75.3 Q138.2 80.0 140.7 84.7 Q143.2 89.3 138.3 94.7Z" fill="#7a0610" transform="translate(100 100) scale(.55) translate(-100 -100)" opacity=".8"/><circle cx="136.4" cy="20.3" r="3.3" fill="#14080a"/><circle cx="8.6" cy="111.0" r="1.9" fill="#c8101e"/><circle cx="177.5" cy="87.5" r="5.6" fill="#c8101e"/><circle cx="143.8" cy="35.0" r="5.9" fill="#14080a"/><circle cx="40.3" cy="166.8" r="1.6" fill="#c8101e"/><circle cx="178.1" cy="123.6" r="6.8" fill="#c8101e"/><circle cx="130.8" cy="187.9" r="6.6" fill="#14080a"/><circle cx="179.2" cy="69.5" r="3.5" fill="#c8101e"/><circle cx="7.6" cy="85.7" r="2.2" fill="#c8101e"/></svg><svg class="fl splat" data-px=".6" data-rot="-3" style="width:84px;left:44%;top:84%" viewBox="0 0 200 200" aria-hidden="true"><path d="M133.3 96.1 Q134.7 100.0 159.3 110.3 Q184.0 120.7 170.3 125.2 Q156.7 129.7 149.4 133.5 Q142.1 137.3 137.4 142.3 Q132.7 147.4 127.1 152.0 Q121.5 156.6 113.3 149.3 Q105.1 142.0 101.1 133.3 Q97.0 124.5 92.8 127.4 Q88.5 130.4 79.7 136.2 Q71.0 142.1 65.3 139.0 Q59.6 135.8 42.4 137.5 Q25.3 139.2 32.1 127.1 Q38.9 115.1 21.0 107.5 Q3.1 100.0 27.9 94.2 Q52.7 88.3 63.6 87.5 Q74.5 86.6 72.5 80.2 Q70.5 73.8 65.7 58.7 Q61.0 43.5 69.3 42.1 Q77.5 40.7 85.6 44.3 Q93.7 48.0 101.2 38.0 Q108.7 28.0 116.0 33.3 Q123.3 38.6 130.2 42.4 Q137.1 46.2 136.6 57.1 Q136.1 68.0 141.0 72.0 Q145.9 75.9 138.9 84.0 Q131.9 92.1 133.3 96.1Z" fill="#c8101e"/><path d="M133.3 96.1 Q134.7 100.0 159.3 110.3 Q184.0 120.7 170.3 125.2 Q156.7 129.7 149.4 133.5 Q142.1 137.3 137.4 142.3 Q132.7 147.4 127.1 152.0 Q121.5 156.6 113.3 149.3 Q105.1 142.0 101.1 133.3 Q97.0 124.5 92.8 127.4 Q88.5 130.4 79.7 136.2 Q71.0 142.1 65.3 139.0 Q59.6 135.8 42.4 137.5 Q25.3 139.2 32.1 127.1 Q38.9 115.1 21.0 107.5 Q3.1 100.0 27.9 94.2 Q52.7 88.3 63.6 87.5 Q74.5 86.6 72.5 80.2 Q70.5 73.8 65.7 58.7 Q61.0 43.5 69.3 42.1 Q77.5 40.7 85.6 44.3 Q93.7 48.0 101.2 38.0 Q108.7 28.0 116.0 33.3 Q123.3 38.6 130.2 42.4 Q137.1 46.2 136.6 57.1 Q136.1 68.0 141.0 72.0 Q145.9 75.9 138.9 84.0 Q131.9 92.1 133.3 96.1Z" fill="#7a0610" transform="translate(100 100) scale(.55) translate(-100 -100)" opacity=".8"/><circle cx="66.2" cy="15.0" r="2.2" fill="#14080a"/><circle cx="108.1" cy="184.9" r="4.4" fill="#c8101e"/><circle cx="132.2" cy="18.1" r="1.8" fill="#c8101e"/><circle cx="137.9" cy="22.1" r="4.4" fill="#14080a"/><circle cx="115.1" cy="185.2" r="3.7" fill="#c8101e"/><circle cx="110.8" cy="20.7" r="4.6" fill="#c8101e"/><circle cx="140.2" cy="182.7" r="1.8" fill="#14080a"/><circle cx="86.0" cy="183.7" r="5.0" fill="#c8101e"/><circle cx="182.6" cy="128.0" r="2.7" fill="#c8101e"/></svg><svg class="fl splat" data-px="-.3" data-rot="2" style="width:70px;right:34%;top:14%" viewBox="0 0 200 200" aria-hidden="true"><path d="M145.7 93.9 Q142.2 100.0 137.8 104.1 Q133.4 108.2 136.7 114.6 Q140.0 121.0 155.8 142.2 Q171.6 163.5 152.6 156.0 Q133.5 148.6 127.1 151.5 Q120.6 154.4 114.0 157.4 Q107.3 160.5 99.9 161.0 Q92.5 161.5 89.9 147.5 Q87.3 133.6 86.7 126.8 Q86.2 120.0 66.4 133.6 Q46.6 147.3 48.0 137.0 Q49.3 126.6 35.2 123.0 Q21.2 119.4 30.5 109.7 Q39.9 100.0 34.3 91.2 Q28.7 82.4 40.0 78.4 Q51.3 74.5 61.8 74.9 Q72.3 75.4 76.4 73.7 Q80.6 71.9 81.6 62.9 Q82.5 54.0 89.1 59.2 Q95.7 64.4 100.2 63.0 Q104.7 61.6 113.6 51.2 Q122.4 40.8 131.6 40.9 Q140.7 41.0 142.8 50.6 Q144.9 60.2 143.3 69.2 Q141.7 78.1 145.4 83.0 Q149.1 87.9 145.7 93.9Z" fill="#c8101e"/><path d="M145.7 93.9 Q142.2 100.0 137.8 104.1 Q133.4 108.2 136.7 114.6 Q140.0 121.0 155.8 142.2 Q171.6 163.5 152.6 156.0 Q133.5 148.6 127.1 151.5 Q120.6 154.4 114.0 157.4 Q107.3 160.5 99.9 161.0 Q92.5 161.5 89.9 147.5 Q87.3 133.6 86.7 126.8 Q86.2 120.0 66.4 133.6 Q46.6 147.3 48.0 137.0 Q49.3 126.6 35.2 123.0 Q21.2 119.4 30.5 109.7 Q39.9 100.0 34.3 91.2 Q28.7 82.4 40.0 78.4 Q51.3 74.5 61.8 74.9 Q72.3 75.4 76.4 73.7 Q80.6 71.9 81.6 62.9 Q82.5 54.0 89.1 59.2 Q95.7 64.4 100.2 63.0 Q104.7 61.6 113.6 51.2 Q122.4 40.8 131.6 40.9 Q140.7 41.0 142.8 50.6 Q144.9 60.2 143.3 69.2 Q141.7 78.1 145.4 83.0 Q149.1 87.9 145.7 93.9Z" fill="#7a0610" transform="translate(100 100) scale(.55) translate(-100 -100)" opacity=".8"/><circle cx="90.0" cy="193.2" r="2.6" fill="#14080a"/><circle cx="29.1" cy="46.0" r="4.6" fill="#c8101e"/><circle cx="162.7" cy="166.2" r="6.5" fill="#c8101e"/><circle cx="64.6" cy="176.9" r="6.5" fill="#14080a"/><circle cx="26.4" cy="60.7" r="1.7" fill="#c8101e"/><circle cx="101.5" cy="15.1" r="4.1" fill="#c8101e"/><circle cx="87.3" cy="189.8" r="5.5" fill="#14080a"/><circle cx="70.9" cy="174.0" r="6.9" fill="#c8101e"/><circle cx="166.1" cy="57.8" r="4.6" fill="#c8101e"/></svg><svg class="fl stroke" data-px=".55" data-rot="-18" style="width:520px;left:-6%;top:30%;opacity:.8" viewBox="0 0 400 40" aria-hidden="true"><path d="M0 22L400 12L400 24Z" fill="#c8101e"/><path d="M40 26L300 18L300 24Z" fill="#14080a" opacity=".7"/></svg><svg class="fl stroke" data-px="-.65" data-rot="-22" style="width:640px;right:-10%;top:76%;opacity:.9" viewBox="0 0 400 40" aria-hidden="true"><path d="M0 22L400 12L400 24Z" fill="#c8101e"/><path d="M40 26L300 18L300 24Z" fill="#14080a" opacity=".7"/></svg><svg class="fl stroke" data-px=".4" data-rot="-14" style="width:360px;left:34%;top:6%;opacity:.55" viewBox="0 0 400 40" aria-hidden="true"><path d="M0 22L400 12L400 24Z" fill="#c8101e"/><path d="M40 26L300 18L300 24Z" fill="#14080a" opacity=".7"/></svg>
+    <div class="wrap">
+      <div class="ctext">
+        <span class="numeral" data-r>V</span>
+        <h2 data-r style="--d:80">Español <span class="it">espanhol</span></h2>
+        <p class="gloss" data-r style="--d:140"><b>español</b> /espaˈɲol/ · idioma oficial em cerca de 20 países, da Espanha ao Chile</p>
+        <div class="body" data-r style="--d:200">
+          <p>Do México à Argentina, da Espanha às Antilhas, o espanhol soa diferente em cada esquina e continua sendo o mesmo idioma. Para quem fala português, ele parece fácil logo de cara e engana mais rápido ainda.</p>
+          <p>Na SLA, o espanhol é trabalhado como língua viva, com atenção aos falsos amigos: aquele que transforma “esquisito” em exquisito, que em espanhol é um elogio.</p>
+          <p>Disponível em aulas coletivas ou particulares, do nível N0 ao N5.</p>
+        </div>
+        <ul class="chips" data-r style="--d:240"><li>Flamenco</li><li>Tapas</li><li>Fútbol</li><li>Carnaval</li><li>Literatura</li><li>Día de Muertos</li></ul>
+        <blockquote class="quote" data-r style="--d:260">
+          <q>Caminante, no hay camino, se hace camino al andar.</q>
+          <cite>Antonio Machado · Campos de Castilla</cite>
+          <span>Caminhante, não há caminho: o caminho se faz ao caminhar.</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PALAVRAS E EXPRESSÕES ═══════ -->
+  <section class="parole on-paper" id="palavras" data-ch="6" aria-label="Palavras e expressões">
+    <h3>Palavras que você vai usar logo</h3>
+    <div class="track" id="track" aria-hidden="true"></div>
+  </section>
+
+  <div class="sheet">
+  <!-- ═══════ FOLHA CENTRAL · objetos decorativos ═══════ -->
+  <i class="fl orb " data-anchor="top" data-px="-.32" style="--s:170px;right:7%;top:-95px;z-index:3" aria-hidden="true"></i><svg class="fl book " data-anchor="top" data-px="-.2" data-rot="-8" style="width:150px;left:5%;top:-60px;z-index:3" viewBox="0 0 160 110" aria-hidden="true"><path d="M80 24C60 10 28 10 8 20V92C28 82 60 82 80 96Z" fill="#f4ead2"/><path d="M80 24C100 10 132 10 152 20V92C132 82 100 82 80 96Z" fill="#fff7e6"/><path d="M4 22V98C26 88 58 88 80 102C102 88 134 88 156 98V22" fill="none" stroke="#0b1f4d" stroke-width="7" stroke-linejoin="round"/><path d="M80 24V100" stroke="#0b1f4d" stroke-width="4"/><path d="M22 34C40 30 56 32 68 38M22 48C40 44 56 46 68 52M92 38C104 32 120 30 138 34M92 52C104 46 120 44 138 48" stroke="#c9b37a" stroke-width="3" fill="none"/></svg><svg class="fl pix " data-anchor="top" data-px="-.12" style="width:70px;right:30%;top:-30px;z-index:3" viewBox="0 0 60 60" aria-hidden="true"><rect x="0" y="24" width="14" height="14" fill="#e8aa25"/><rect x="20" y="8" width="14" height="14" fill="#2a62c9"/><rect x="38" y="26" width="10" height="10" fill="#e8aa25"/><rect x="26" y="42" width="12" height="12" fill="#0b1f4d"/></svg>
+  <!-- ═══════ FUNDADOR ═══════ -->
+  <section class="sec founder" id="fundador" data-ch="6">
+    <span class="fl bubble b1" data-px="-.18" style="left:2%;top:80%" aria-hidden="true"><b>EN</b>Hello</span><i class="fl orb blue" data-px=".26" style="--s:110px;right:2%;bottom:16%" aria-hidden="true"></i>
+    <div class="wrap fgrid">
+      <figure class="fphoto" data-px="-.07" data-r>
+        <img src="img/ceo.jpg" alt="Silvério Justino Nanque, fundador e CEO da SLA" width="880" height="964" loading="lazy">
+        <figcaption>Silvério Justino Nanque · Fundador e CEO</figcaption>
+      </figure>
+      <div class="ftext">
+        <p class="eyebrow" data-r>Fundador e CEO</p>
+        <h2 data-r style="--d:80">Silvério Justino <span class="it">Nanque</span></h2>
+        <p class="lead" data-r style="--d:140">Educador e empreendedor guineense, fundador e CEO (Chief Executive Officer) da Silvério Languages Academy. A academia surgiu da sua experiência educacional na Guiné-Bissau e da sua trajetória de formação e atuação no Brasil.</p>
+        <div class="acc" data-r style="--d:200">
+          <details open><summary>Biografia</summary><p class="ph">Texto a ser fornecido pela direção.</p></details>
+          <details><summary>Trajetória educacional</summary><p class="ph">Texto a ser fornecido pela direção.</p></details>
+          <details><summary>Experiência no ensino de idiomas</summary><p class="ph">Texto a ser fornecido pela direção.</p></details>
+          <details><summary>Visão empreendedora</summary><p class="ph">Texto a ser fornecido pela direção.</p></details>
+          <details><summary>Mensagem do Fundador e CEO aos estudantes</summary><p class="ph">Mensagem a ser fornecida pelo fundador.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ IDENTIDADE ═══════ -->
+  <section class="sec" id="identidade" data-ch="6">
+    <i class="fl orb " data-px=".3" style="--s:130px;right:4%;top:-30px" aria-hidden="true"></i><svg class="fl pix " data-px="-.22" style="width:80px;left:3%;bottom:12%" viewBox="0 0 60 60" aria-hidden="true"><rect x="0" y="24" width="14" height="14" fill="#e8aa25"/><rect x="20" y="8" width="14" height="14" fill="#2a62c9"/><rect x="38" y="26" width="10" height="10" fill="#e8aa25"/><rect x="26" y="42" width="12" height="12" fill="#0b1f4d"/></svg>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Identidade institucional</p>
+      <div class="cards three">
+        <article class="card" data-r style="--d:0"><span class="kicker">Missão</span><p>Proporcionar educação linguística acessível, inovadora e de qualidade, conectando pessoas a novas oportunidades académicas, profissionais e culturais através dos idiomas.</p></article>
+        <article class="card" data-r style="--d:100"><span class="kicker">Visão</span><p>Tornar-se uma referência internacional no ensino de idiomas, formando cidadãos preparados para comunicar, estudar, trabalhar e atuar num mundo globalizado.</p></article>
+        <article class="card" data-r style="--d:200"><span class="kicker">Valor</span><p class="big">Excelência</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CURSOS E PLATAFORMA EAD ═══════ -->
+  <section class="sec" id="cursos" data-ch="6">
+    <span class="fl bubble b2" data-px="-.28" style="right:3%;top:9%" aria-hidden="true"><b>FR</b>Bonjour</span><span class="fl bubble b3 hide-s" data-px=".22" style="left:1%;top:42%" aria-hidden="true"><b>中文</b>你好</span><span class="fl bubble b4 hide-s" data-px="-.14" style="right:6%;top:58%" aria-hidden="true"><b>ES</b>Hola</span><i class="fl orb blue" data-px=".34" style="--s:90px;right:24%;top:16%" aria-hidden="true"></i>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Cursos</p>
+      <h2 data-r style="--d:80">O que você pode <span class="it">estudar</span></h2>
+      <p class="lead" data-r style="--d:140">Cinco cursos para começar. A direção pode acrescentar novos cursos e idiomas a qualquer momento.</p>
+      <ol class="cards courses">
+        <li class="card" data-r style="--d:0"><span class="kicker">Curso 1</span><h3>Inglês</h3><p>Comunicação em inglês para estudo, trabalho e viagem.</p><dl><dt>Níveis</dt><dd>N0 a N5</dd><dt>Modalidades</dt><dd>Coletivas · Particulares</dd></dl><a class="btn" data-ead data-course="ingles" href="#contato">Inscrever-se</a></li>
+        <li class="card" data-r style="--d:80"><span class="kicker">Curso 2</span><h3>Francês</h3><p>Francês falado e a cultura do mundo francófono.</p><dl><dt>Níveis</dt><dd>N0 a N5</dd><dt>Modalidades</dt><dd>Coletivas · Particulares</dd></dl><a class="btn" data-ead data-course="frances" href="#contato">Inscrever-se</a></li>
+        <li class="card" data-r style="--d:160"><span class="kicker">Curso 3</span><h3>Espanhol</h3><p>Espanhol falado, com a diversidade de sotaques do mundo hispânico.</p><dl><dt>Níveis</dt><dd>N0 a N5</dd><dt>Modalidades</dt><dd>Coletivas · Particulares</dd></dl><a class="btn" data-ead data-course="espanhol" href="#contato">Inscrever-se</a></li>
+        <li class="card" data-r style="--d:240"><span class="kicker">Curso 4</span><h3>Mandarim</h3><p>Mandarim do zero: tons, pinyin e caracteres.</p><dl><dt>Nível</dt><dd>Nível zero</dd><dt>Modalidades</dt><dd>Coletivas · Particulares</dd></dl><a class="btn" data-ead data-course="mandarim" href="#contato">Inscrever-se</a></li>
+        <li class="card tech" data-r style="--d:320"><span class="kicker">Curso 5</span><h3>Inteligência Artificial</h3><p>Primeiro módulo do curso de Inteligência Artificial.</p><dl><dt>Módulo</dt><dd>Módulo 1</dd><dt>Modalidades</dt><dd>Conforme o curso</dd></dl><a class="btn" data-ead data-course="ia" href="#contato">Inscrever-se</a></li>
+      </ol>
+      <p class="note" data-r>Descrição, objetivos e conteúdos detalhados de cada curso serão acrescentados pela direção.</p>
+      <div class="ead-band" id="ead" data-r>
+        <div>
+          <span class="kicker">Plataforma EAD da SLA</span>
+          <h3>Estude online</h3>
+          <p>Acesse a plataforma, conheça os cursos disponíveis, escolha o seu e faça a inscrição ou a compra.</p>
+        </div>
+        <a class="btn solid big" data-ead href="#contato">Estude online · Plataforma EAD →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ NÍVEIS N0–N5 ═══════ -->
+  <section class="sec" id="niveis" data-ch="6">
+    <i class="fl orb blue" data-px="-.3" style="--s:120px;left:2%;top:10%" aria-hidden="true"></i><svg class="fl pix " data-px=".2" style="width:90px;right:4%;bottom:10%" viewBox="0 0 60 60" aria-hidden="true"><rect x="0" y="24" width="14" height="14" fill="#e8aa25"/><rect x="20" y="8" width="14" height="14" fill="#2a62c9"/><rect x="38" y="26" width="10" height="10" fill="#e8aa25"/><rect x="26" y="42" width="12" height="12" fill="#0b1f4d"/></svg>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Níveis de aprendizagem</p>
+      <h2 data-r style="--d:80">Do zero <span class="it">ao avançado</span></h2>
+      <ol class="steps">
+        <li data-r style="--d:0"><b>N0</b><span>Iniciante<br><i>Beginner</i></span></li>
+        <li data-r style="--d:70"><b>N1</b><span>Básico</span></li>
+        <li data-r style="--d:140"><b>N2</b><span>Pré-intermediário</span></li>
+        <li data-r style="--d:210"><b>N3</b><span>Intermediário</span></li>
+        <li data-r style="--d:280"><b>N4</b><span>Avançado</span></li>
+        <li data-r style="--d:350"><b>N5</b><span>Avançado</span></li>
+      </ol>
+      <p class="note" data-r>A disponibilidade de cada nível é atualizada pela direção.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ MODALIDADES ═══════ -->
+  <section class="sec" id="modalidades" data-ch="6">
+    <span class="fl bubble b4" data-px=".2" style="right:2%;top:8%" aria-hidden="true"><b>ES</b>Hola</span><svg class="fl book hide-s" data-px=".25" data-rot="10" style="width:120px;left:1%;bottom:4%" viewBox="0 0 160 110" aria-hidden="true"><path d="M80 24C60 10 28 10 8 20V92C28 82 60 82 80 96Z" fill="#f4ead2"/><path d="M80 24C100 10 132 10 152 20V92C132 82 100 82 80 96Z" fill="#fff7e6"/><path d="M4 22V98C26 88 58 88 80 102C102 88 134 88 156 98V22" fill="none" stroke="#0b1f4d" stroke-width="7" stroke-linejoin="round"/><path d="M80 24V100" stroke="#0b1f4d" stroke-width="4"/><path d="M22 34C40 30 56 32 68 38M22 48C40 44 56 46 68 52M92 38C104 32 120 30 138 34M92 52C104 46 120 44 138 48" stroke="#c9b37a" stroke-width="3" fill="none"/></svg>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Modalidades de ensino</p>
+      <h2 data-r style="--d:80">Em grupo <span class="it">ou a sós</span></h2>
+      <div class="cards two">
+        <article class="card" data-r style="--d:0">
+          <span class="kicker">A · Aulas coletivas</span>
+          <ul><li>Turmas online</li><li>Interação entre estudantes</li><li>Conversação e atividades práticas</li><li>Aprendizagem colaborativa</li><li>Acompanhamento dos professores</li></ul>
+          <a class="btn" data-wa="sec" target="_blank" rel="noopener" href="https://wa.me/5571982606512">Falar com a secretaria — aulas coletivas</a>
+        </article>
+        <article class="card" data-r style="--d:100">
+          <span class="kicker">B · Aulas particulares</span>
+          <ul><li>Ensino individualizado</li><li>Acompanhamento personalizado</li><li>Conteúdo adaptado às necessidades do estudante</li><li>Maior flexibilidade de horários</li></ul>
+          <a class="btn" data-wa="part" target="_blank" rel="noopener" href="https://wa.me/5571982841804">Solicitar aulas particulares</a>
+        </article>
+      </div>
+      <p class="note" data-r>As aulas são realizadas online, com ferramentas como o Google Meet.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ METODOLOGIA ═══════ -->
+  <section class="sec" id="metodologia" data-ch="6">
+    <i class="fl orb " data-px="-.26" style="--s:100px;right:5%;top:12%" aria-hidden="true"></i><span class="fl bubble b1 hide-s" data-px=".18" style="left:3%;bottom:8%" aria-hidden="true"><b>EN</b>Let’s talk</span>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Metodologia</p>
+      <h2 data-r style="--d:80">Aprender <span class="it">comunicando</span></h2>
+      <ul class="chips big" data-r style="--d:140">
+        <li>Communicative Language Teaching (CLT)</li><li>Task-Based Learning (TBL)</li><li>Active Learning</li><li>Conversação e situações reais</li><li>Atividades práticas</li><li>Fala, escuta, leitura e escrita</li>
+      </ul>
+      <p class="lead" data-r style="--d:200">A prioridade é desenvolver a capacidade de comunicação dos estudantes.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ EVENTOS E COMUNICADOS ═══════ -->
+  <section class="sec" id="eventos" data-ch="6">
+    <svg class="fl pix " data-px="-.2" style="width:76px;right:3%;top:6%" viewBox="0 0 60 60" aria-hidden="true"><rect x="0" y="24" width="14" height="14" fill="#e8aa25"/><rect x="20" y="8" width="14" height="14" fill="#2a62c9"/><rect x="38" y="26" width="10" height="10" fill="#e8aa25"/><rect x="26" y="42" width="12" height="12" fill="#0b1f4d"/></svg><i class="fl orb blue" data-px=".3" style="--s:84px;left:2%;bottom:6%" aria-hidden="true"></i>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Vida institucional</p>
+      <h2 data-r style="--d:80">Eventos e vida <span class="it">institucional da SLA</span></h2>
+      <div class="cards two events">
+        <article class="card feature" id="event-feature" data-r style="--d:0">
+          <span class="kicker">Em destaque</span>
+          <h3>Encontros Internacionais dos Embaixadores</h3>
+          <p>Realizados regularmente pela academia. Cada edição é publicada aqui, com tema, data, descrição, fotografias e vídeos, e o histórico de todos os encontros fica guardado.</p>
+          <p class="ph">Próxima edição e histórico: a publicar pela direção.</p>
+        </article>
+        <article class="card" data-r style="--d:100">
+          <span class="kicker">Comunicados oficiais da direção</span>
+          <ul class="notices" id="notices-list">
+            <li class="ph"><b>Fixado</b> Espaço para o primeiro comunicado.</li>
+            <li class="ph">Anúncios, convocatórias e informações académicas.</li>
+            <li class="ph">Alterações de horários e avisos importantes.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ GALERIA ═══════ -->
+  <section class="sec" id="galeria" data-ch="6">
+    <i class="fl orb " data-px=".28" style="--s:110px;right:3%;top:2%" aria-hidden="true"></i><span class="fl bubble b2 hide-s" data-px="-.2" style="left:2%;top:26%" aria-hidden="true"><b>FR</b>Merci</span>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Galeria</p>
+      <h2 data-r style="--d:80">Fotos <span class="it">e vídeos</span></h2>
+      <div class="gallery" data-r style="--d:140">
+        <div class="ph tile wide">Vídeo promocional · espaço reservado</div>
+        <div class="ph tile">Encontros</div>
+        <div class="ph tile">Atividades académicas</div>
+        <div class="ph tile">Professores e estudantes</div>
+        <div class="ph tile">Eventos institucionais</div>
+        <div class="ph tile">Depoimentos</div>
+      </div>
+      <p class="note">Fotografias e vídeos (YouTube ou outras plataformas) serão publicados e organizados pela direção.</p>
+    </div>
+  </section>
+
+  <!-- ═══════ EQUIPE ═══════ -->
+  <section class="sec" id="equipe" data-ch="6">
+    <svg class="fl pix " data-px=".22" style="width:80px;left:3%;top:4%" viewBox="0 0 60 60" aria-hidden="true"><rect x="0" y="24" width="14" height="14" fill="#e8aa25"/><rect x="20" y="8" width="14" height="14" fill="#2a62c9"/><rect x="38" y="26" width="10" height="10" fill="#e8aa25"/><rect x="26" y="42" width="12" height="12" fill="#0b1f4d"/></svg><i class="fl orb blue" data-px="-.28" style="--s:96px;right:4%;bottom:18%" aria-hidden="true"></i>
+    <div class="wrap">
+      <p class="eyebrow" data-r>Equipa, certificados e depoimentos</p>
+      <div class="cards three">
+        <article class="card" data-r style="--d:0"><span class="kicker">Equipa</span><ul class="chips"><li>Direção</li><li>Professores</li><li>Secretaria</li><li>Colaboradores</li></ul><p class="ph">Apresentação da equipa: a fornecer.</p></article>
+        <article class="card" data-r style="--d:100"><span class="kicker">Certificados</span><p class="ph">Informações sobre os certificados emitidos pela academia: a fornecer.</p></article>
+        <article class="card" data-r style="--d:200"><span class="kicker">Depoimentos</span><p class="ph">Depoimentos, fotografias e experiências de estudantes: a fornecer.</p></article>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- ═══════ CONTATO / FORMULÁRIO ═══════ -->
+  <section class="cta on-paper" id="contato" data-ch="6">
+    <div class="wrap">
+      <p class="eyebrow" data-r>Contato</p>
+      <h2 data-r style="--d:80">Fale com <span class="it">a SLA</span></h2>
+      <div class="contact-grid">
+        <div class="cards one">
+          <article class="card" data-r style="--d:0">
+            <span class="kicker">Secretaria · aulas coletivas</span>
+            <p class="num">+55 71 98260-6512</p>
+            <p class="small">Inscrições, turmas, vagas, horários, valores, pagamentos e questões administrativas.</p>
+            <a class="btn solid" data-wa="sec" target="_blank" rel="noopener" href="https://wa.me/5571982606512">Falar com a secretaria — aulas coletivas</a>
+          </article>
+          <article class="card" data-r style="--d:100">
+            <span class="kicker">Aulas particulares</span>
+            <p class="num">+55 71 98284-1804</p>
+            <p class="small">Aulas individuais, horários, condições de aprendizagem, valores e pagamentos.</p>
+            <a class="btn solid" data-wa="part" target="_blank" rel="noopener" href="https://wa.me/5571982841804">Solicitar aulas particulares</a>
+          </article>
+          <article class="card" data-r style="--d:200">
+            <span class="kicker">E-mail institucional</span>
+            <p class="num mail"><a href="mailto:silveriolanguagesacademy@gmail.com" id="mail">silveriolanguagesacademy@gmail.com</a></p>
+            <button class="btn" type="button" id="copymail">Copiar e-mail</button>
+          </article>
+        </div>
+        <form id="form" data-r style="--d:200" novalidate>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+          <label for="nome">Nome<input id="nome" name="nome" autocomplete="name" required placeholder="Como devemos te chamar?"></label>
+          <label for="email">E-mail<input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com"></label>
+          <label for="curso">Curso de interesse
+            <select id="curso" name="curso"><option>Inglês</option><option>Francês</option><option>Espanhol</option><option>Mandarim — nível zero</option><option>Inteligência Artificial — Módulo 1</option></select>
+          </label>
+          <label for="modal">Modalidade
+            <select id="modal" name="modal"><option>Aulas coletivas</option><option>Aulas particulares</option></select>
+          </label>
+          <label for="msgtxt">Mensagem<textarea id="msgtxt" name="msgtxt" rows="3" placeholder="Conte o que você procura"></textarea></label>
+          <button class="btn solid" type="submit" style="justify-content:center">Enviar mensagem</button>
+          <p id="msg" role="status"></p>
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+<!-- ═══════ RODAPÉ ═══════ -->
+  <div class="foot-piece">
+    <footer class="wrap">
+      <div class="fbrand"><img src="img/logo.jpg" alt="Logotipo da Silvério Languages Academy" width="72" height="72" loading="lazy"><div><b>Silvério Languages Academy (SLA)</b><span>Conectando pessoas ao mundo através dos idiomas.</span><span class="dom">www.silveriolanguagesacademy.com</span></div></div>
+      <div class="legal">
+        <details><summary>Política de privacidade</summary><p>Texto provisório, a ser revisado pela direção. Os dados enviados pelo formulário de contato serão usados apenas para responder ao visitante e não serão partilhados com terceiros sem consentimento.</p></details>
+        <details><summary>Termos de utilização</summary><p>Texto provisório, a ser revisado pela direção. O conteúdo deste site é da Silvério Languages Academy; as inscrições e compras de cursos são concluídas na plataforma EAD.</p></details>
+      </div>
+    </footer>
+  </div>
+
+</main>
+
+<!-- ═══════ SCRIPTS (ordem importa) ═══════ -->
+<script src="js/00-config.js" defer></script>
+<script src="js/01-core.js" defer></script>
+<script src="js/02-api.js" defer></script>
+<script src="js/03-chapters.js" defer></script>
+<script src="js/04-reveal.js" defer></script>
+<script src="js/05-content.js" defer></script>
+<script src="js/06-form.js" defer></script>
+<script src="js/07-ascii-portrait.js" defer></script>
+<script src="js/08-paper-edges.js" defer></script>
+<script src="js/09-theme.js" defer></script>
+<script src="js/10-parallax.js" defer></script>
+<script src="js/11-shaders.js" defer></script>
+<script src="js/12-webgl-stage.js" defer></script>
+</body>
+</html>
